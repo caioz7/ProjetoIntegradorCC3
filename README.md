@@ -8,7 +8,7 @@ Objetivo era de acordo com a força aplicada, gravidade e direção do objeto, t
 
 EQUIPE:
 
-MATHEUS SANTOS
-FLAVIO PRADO
-CAIO DANTAS
+MATHEUS SANTOS /
+FLAVIO PRADO /
+CAIO DANTAS /
 PHILE CABRAL
