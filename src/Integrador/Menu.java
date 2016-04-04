@@ -21,7 +21,7 @@ public class Menu extends JPanel {
 		setLayout(null);
 
 		jogar = new JButton("");
-		jogar.setIcon(new ImageIcon("C:/Users/MATHEUS/workspace/Integrador/bin/Integrador/img/botao.png"));
+		jogar.setIcon(new ImageIcon("http://i.imgur.com/xjMpoHs.png"));
 		jogar.setBounds(356, 100, 270, 270);
 		jogar.setForeground(Color.BLACK);
 		jogar.setContentAreaFilled(false);
