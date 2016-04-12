@@ -25,9 +25,9 @@ public class ObjetoLancado {
 				t += 1;
 				if (o.obterCordenada()
 						.distancia(new Cordenada(0, cen.obterAlturaLancamento() + o.obterTamanho() / 2)) > 0) {
-					o.definirCordenada(prochCoordDroite((int) t, o.obterCordenada(),
+					o.definirCordenada(proximaCordenada((int) t, o.obterCordenada(),
 							new Cordenada(0, cen.obterAlturaLancamento() + o.obterTamanho() / 2)));
-					o.alterarProximaCordenada(prochCoordDroite((int) t + 10, o.obterCordenada(),
+					o.alterarProximaCordenada(proximaCordenada((int) t + 10, o.obterCordenada(),
 							new Cordenada(0, cen.obterAlturaLancamento() + o.obterTamanho() / 2)));
 					cen.repaint();
 				} else {
@@ -39,7 +39,7 @@ public class ObjetoLancado {
 		timer.scheduleAtFixedRate(timerTask, 0, 5);
 	}
 
-	public static Cordenada prochCoordDroite(int t, Cordenada dep, Cordenada arr) {
+	public static Cordenada proximaCordenada(int t, Cordenada dep, Cordenada arr) {
 		Cordenada p = arr;
 
 		while (p.distancia(dep) > t) {
