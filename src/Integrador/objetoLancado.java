@@ -3,14 +3,14 @@ package Integrador;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class objetoLancado {
+public class ObjetoLancado {
 
 	private Cenario cen;
 	double t;
 
 	double velocidade, angulo;
 
-	public objetoLancado(Passaro o, Cenario d1, double vel, double ang) {
+	public ObjetoLancado(Passaro o, Cenario d1, double vel, double ang) {
 		cen = d1;
 		velocidade = vel;
 		angulo = ang;
