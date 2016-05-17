@@ -88,7 +88,7 @@ public class Cenario extends JPanel implements Observer {
 							tan = catetoOposto / catetoAdjacente;
 							angulo = 90 + Math.toDegrees(Math.atan(tan));
 						}
-						Cordenada cord2 = objetoLancado.prochCoordDroite(25, passaroLancado.obterCordenada(),
+						Cordenada cord2 = ObjetoLancado.proximaCordenada(25, passaroLancado.obterCordenada(),
 								new Cordenada(0, alturaLancamento + passaroLancado.obterTamanho() / 2));
 						passaroLancado.alterarProximaCordenada(cord2);
 						arrastar = true;
@@ -167,7 +167,7 @@ public class Cenario extends JPanel implements Observer {
 	}
 
 	public void lancarObjeto() {
-		new objetoLancado(passaroLancado, this, velocidade, angulo);
+		new ObjetoLancado(passaroLancado, this, velocidade, angulo);
 		passaroLancado.voar();
 		JLabel lblVelocidade = new JLabel("Velocidade:"+velocidade);
 		lblVelocidade.setBounds(10, 11, 135, 14);

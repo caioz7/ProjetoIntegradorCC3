@@ -3,14 +3,14 @@ package Integrador;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class objetoLancado {
+public class ObjetoLancado {
 
 	private Cenario cen;
 	double t;
 
 	double velocidade, angulo;
 
-	public objetoLancado(Passaro o, Cenario d1, double vel, double ang) {
+	public ObjetoLancado(Passaro o, Cenario d1, double vel, double ang) {
 		cen = d1;
 		velocidade = vel;
 		angulo = ang;
@@ -25,9 +25,9 @@ public class objetoLancado {
 				t += 1;
 				if (o.obterCordenada()
 						.distancia(new Cordenada(0, cen.obterAlturaLancamento() + o.obterTamanho() / 2)) > 0) {
-					o.definirCordenada(prochCoordDroite((int) t, o.obterCordenada(),
+					o.definirCordenada(proximaCordenada((int) t, o.obterCordenada(),
 							new Cordenada(0, cen.obterAlturaLancamento() + o.obterTamanho() / 2)));
-					o.alterarProximaCordenada(prochCoordDroite((int) t + 10, o.obterCordenada(),
+					o.alterarProximaCordenada(proximaCordenada((int) t + 10, o.obterCordenada(),
 							new Cordenada(0, cen.obterAlturaLancamento() + o.obterTamanho() / 2)));
 					cen.repaint();
 				} else {
@@ -39,7 +39,7 @@ public class objetoLancado {
 		timer.scheduleAtFixedRate(timerTask, 0, 5);
 	}
 
-	public static Cordenada prochCoordDroite(int t, Cordenada dep, Cordenada arr) {
+	public static Cordenada proximaCordenada(int t, Cordenada dep, Cordenada arr) {
 		Cordenada p = arr;
 
 		while (p.distancia(dep) > t) {
