@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.ImageIcon;
 
 public class Menu extends JPanel {
 
@@ -35,5 +34,4 @@ public class Menu extends JPanel {
 		});
 		add(jogar);
 	}
-
 }

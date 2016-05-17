@@ -9,7 +9,8 @@ public class Animacao {
 	private Cenario cen;
 	double tempoDelay;
 
-	double velocidade, angulo;
+	double velocidade;
+	double angulo;
 
 	public Animacao(Passaro pass, Cenario d1, double veloc, double ang) {
 		cen = d1;

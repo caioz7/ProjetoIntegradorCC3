@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Cenario extends JPanel implements Observer {
@@ -168,6 +169,9 @@ public class Cenario extends JPanel implements Observer {
 	public void lancarObjeto() {
 		new objetoLancado(passaroLancado, this, velocidade, angulo);
 		passaroLancado.voar();
+		JLabel lblVelocidade = new JLabel("Velocidade:"+velocidade);
+		lblVelocidade.setBounds(10, 11, 135, 14);
+		add(lblVelocidade);
 	}
 
 	public Movimento obterMovimento() {
