@@ -18,7 +18,7 @@ public class Menu extends JPanel {
 	public Menu() {
 
 		super();
-		janelaMenu.setSize(1024,576);
+		janelaMenu.setBounds(0,0,1024,576);
 		setLayout(null);
 		jogar.setBounds(370, 100, 256, 256);
 		jogar.setContentAreaFilled(false);
