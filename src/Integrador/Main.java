@@ -9,6 +9,7 @@ public class Main {
 		janela = new Janela(1024, 576);
 		janela.setTitle("Projeto Integrador - Angry Birds");
 		janela.changerFond(new Menu());
+
 	}
 
 	public static Janela obterJanela() {

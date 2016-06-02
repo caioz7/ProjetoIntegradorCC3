@@ -13,6 +13,7 @@ public class Janela extends JFrame {
 		this.setResizable(false);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
 	}
 
 	public void changerFond(JPanel fond) {
