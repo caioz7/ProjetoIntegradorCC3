@@ -7,6 +7,7 @@ public class Janela extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
+	
 	public Janela(int l, int h) {
 		this.setSize(l, h);
 		this.setResizable(false);

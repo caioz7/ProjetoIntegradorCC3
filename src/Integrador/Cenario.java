@@ -135,7 +135,7 @@ public class Cenario extends JPanel implements Observer {
 		});
 		add(sair);
 
-		novoPassaro = new JButton("NOVO LANÇAMENTO");
+		novoPassaro = new JButton("NOVO LANCAMENTO");
 		novoPassaro.setBounds(630, 20, 220, 50);
 		novoPassaro.setFont(new Font("", Font.ITALIC, 18));
 		;
