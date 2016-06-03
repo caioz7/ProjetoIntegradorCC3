@@ -35,6 +35,7 @@ public class Menu extends JPanel {
 	
 		jogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				Cenario cenario = new Cenario(Main.obterJanela().getContentPane().getWidth(),
 						Main.obterJanela().getContentPane().getHeight(), 40, 125, 100);
 				cenario.adicionarPassaro(new Passaro(cenario));
