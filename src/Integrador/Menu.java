@@ -19,9 +19,10 @@ public class Menu extends JPanel {
 		super();
 		janelaMenu.setBounds(0,0,1024,576);
 		setLayout(null);
-		jogar.setBounds(370, 100, 256, 256);
+		jogar.setBounds(336, 150, 330, 220);
 		jogar.setContentAreaFilled(false);
 		jogar.setToolTipText("Iniciar");
+		jogar.setBorder(null);
 		revalidate();
 		
 	
@@ -37,6 +38,5 @@ public class Menu extends JPanel {
 		
 		add(jogar);
 		add(janelaMenu);
-		validate();
 	}
 }
