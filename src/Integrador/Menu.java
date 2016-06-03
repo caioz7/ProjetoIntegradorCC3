@@ -1,6 +1,5 @@
 package Integrador;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -11,10 +10,10 @@ import javax.swing.JPanel;
 public class Menu extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	protected ImageIcon imgStart = new ImageIcon("Images/Start.png");
-	protected ImageIcon FundoMenu = new ImageIcon(getClass().getResource("Images/BackgroundAngry.jpg"));
+	protected ImageIcon imgStart = new ImageIcon(getClass().getResource("Start.png"));
+	protected ImageIcon fundoMenu = new ImageIcon(getClass().getResource("BackgroundAngry.jpg"));
 	protected JButton jogar = new JButton("",imgStart);
-	protected JLabel janelaMenu = new JLabel(FundoMenu);
+	protected JLabel janelaMenu = new JLabel(fundoMenu);
 	public Menu() {
 
 		super();
@@ -23,7 +22,6 @@ public class Menu extends JPanel {
 		jogar.setBounds(370, 100, 256, 256);
 		jogar.setContentAreaFilled(false);
 		jogar.setToolTipText("Iniciar");
-		
 		revalidate();
 		
 	
@@ -39,6 +37,6 @@ public class Menu extends JPanel {
 		
 		add(jogar);
 		add(janelaMenu);
-	
+		validate();
 	}
 }
