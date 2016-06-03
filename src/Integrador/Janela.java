@@ -14,6 +14,7 @@ public class Janela extends JFrame {
 		this.setResizable(false);
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);	
+		this.setIconImage(imgIcone.getImage());
 	}
 
 	public void changerFond(JPanel fond) {

@@ -24,6 +24,7 @@ public class Menu extends JPanel {
 		jogar.setBounds(540, 150, 330, 220);
 		jogar.setContentAreaFilled(false);
 		jogar.setToolTipText("Iniciar");
+		jogar.setFocusable(false);
 		Sair.setBorder(null);
 		Sair.setBounds(1260, 480, 110, 110);
 		Sair.setContentAreaFilled(false);

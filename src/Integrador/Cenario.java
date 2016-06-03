@@ -146,7 +146,7 @@ public class Cenario extends JPanel implements Observer {
 		novoPassaro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Cenario cenario = new Cenario(Main.obterJanela().getContentPane().getWidth(),
-						Main.obterJanela().getContentPane().getHeight(), 40, 125, 100);
+						Main.obterJanela().getContentPane().getHeight(), 40, 155, 195);
 				cenario.adicionarPassaro(new Passaro(cenario));
 				new Gravidade(cenario);
 				Main.obterJanela().changerFond(cenario);
