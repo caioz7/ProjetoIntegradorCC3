@@ -8,15 +8,12 @@ public class Janela extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	protected ImageIcon imgIcone = new ImageIcon(getClass().getResource("Icone.png"));
-
-	
 	public Janela(int l, int h) {
 		this.setSize(l, h);
+		this.setUndecorated(true);
 		this.setResizable(false);
 		this.setVisible(true);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setLocationRelativeTo(null);
-		this.setIconImage(imgIcone.getImage());
+		this.setLocationRelativeTo(null);	
 	}
 
 	public void changerFond(JPanel fond) {

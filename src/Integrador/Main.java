@@ -6,7 +6,7 @@ public class Main {
 	public static int tamanho = 1;
 
 	public static void main(String[] args) {
-		janela = new Janela(1024, 576);
+		janela = new Janela(1400, 600);
 		janela.setTitle("Projeto Integrador - Angry Birds");
 		janela.changerFond(new Menu());
 

@@ -2,7 +2,6 @@ package Integrador;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
@@ -14,6 +13,8 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -121,11 +122,11 @@ public class Cenario extends JPanel implements Observer {
 			}
 
 		});
-
-		JButton sair = new JButton("SAIR");
-		sair.setBounds(860, 20, 100, 50);
-		sair.setFont(new Font("", Font.ITALIC, 18));
-		sair.setForeground(Color.BLACK);
+		ImageIcon imgVoltar = new ImageIcon(getClass().getResource("HomeButton.png"));
+		JButton sair = new JButton("",imgVoltar);
+		sair.setBounds(1300, 0, 100,100);
+		sair.setToolTipText("Voltar ao menu principal");
+		sair.setBorder(null);
 		sair.setFocusPainted(false);
 		sair.setContentAreaFilled(false);
 		sair.addActionListener(new ActionListener() {
@@ -134,12 +135,12 @@ public class Cenario extends JPanel implements Observer {
 			}
 		});
 		add(sair);
-
-		novoPassaro = new JButton("NOVO LANCAMENTO");
-		novoPassaro.setBounds(630, 20, 220, 50);
-		novoPassaro.setFont(new Font("", Font.ITALIC, 18));
-		;
-		novoPassaro.setForeground(Color.BLACK);
+		ImageIcon imgRestart = new ImageIcon(getClass().getResource("RestartButton.png"));
+		novoPassaro = new JButton("",imgRestart);
+		novoPassaro.setBounds(1170, 0, 117, 113);
+		//novoPassaro.setFont(new Font("", Font.ITALIC, 18));
+		novoPassaro.setBorder(null);
+		//novoPassaro.setForeground(Color.BLACK);
 		novoPassaro.setFocusPainted(false);
 		novoPassaro.setContentAreaFilled(false);
 		novoPassaro.addActionListener(new ActionListener() {
@@ -179,12 +180,12 @@ public class Cenario extends JPanel implements Observer {
 	}
 
 	public void paintComponent(Graphics g) {
-
+		
 		g.setColor(new Color(91, 158, 238));
 		g.fillRect(0, 0, largura, altura);
 		g.fillRect(0, altura - alturaChao, largura, alturaChao);
 		g.setColor(new Color(138, 104, 44));
-		g.fillRect(100, 350, 50, 300);
+		g.fillRect(130, 350, 50, 300);
 
 		for (Passaro o : passaro) {
 			g.setColor(Color.red);

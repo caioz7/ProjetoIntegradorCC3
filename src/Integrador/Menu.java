@@ -10,19 +10,25 @@ import javax.swing.JPanel;
 public class Menu extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	protected ImageIcon imgStart = new ImageIcon(getClass().getResource("Start.png"));
-	protected ImageIcon fundoMenu = new ImageIcon(getClass().getResource("BackgroundAngry.jpg"));
-	protected JButton jogar = new JButton("",imgStart);
-	protected JLabel janelaMenu = new JLabel(fundoMenu);
+	public ImageIcon imgStart = new ImageIcon(getClass().getResource("Start.png"));
+	public ImageIcon fundoMenu = new ImageIcon(getClass().getResource("Background_2.jpg"));
+	public ImageIcon imgSair = new ImageIcon(getClass().getResource("ExitButton.png"));
+	private JButton jogar = new JButton("",imgStart);
+	private JButton Sair= new JButton("",imgSair);
+	private JLabel janelaMenu = new JLabel(fundoMenu);
 	public Menu() {
 
 		super();
-		janelaMenu.setBounds(0,0,1024,576);
-		setLayout(null);
-		jogar.setBounds(336, 150, 330, 220);
+		janelaMenu.setBounds(0,0,1400,600);
+		jogar.setBorder(null);
+		jogar.setBounds(540, 150, 330, 220);
 		jogar.setContentAreaFilled(false);
 		jogar.setToolTipText("Iniciar");
-		jogar.setBorder(null);
+		Sair.setBorder(null);
+		Sair.setBounds(1260, 480, 110, 110);
+		Sair.setContentAreaFilled(false);
+		Sair.setToolTipText("Fechar");
+		setLayout(null);
 		revalidate();
 		
 	
@@ -35,7 +41,13 @@ public class Menu extends JPanel {
 				Main.obterJanela().changerFond(cenario);
 			}
 		});
-		
+		Sair.addActionListener(new ActionListener() {			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);				
+			}
+		});
+		add(Sair);
 		add(jogar);
 		add(janelaMenu);
 	}
