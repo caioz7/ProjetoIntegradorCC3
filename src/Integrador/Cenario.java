@@ -36,8 +36,10 @@ public class Cenario extends JPanel implements Observer {
 	private Passaro passaroLancado;
 
 	public Cenario(int larg, int alt, int alturaC, int posTraj, int alturaL) {
+		 ImageIcon fundoMenu = new ImageIcon(getClass().getResource("Background_2.jpg"));
+		 JLabel janelaMenu = new JLabel(fundoMenu);
 		setLayout(null);
-
+		add(janelaMenu);
 		passaro = new ArrayList<Passaro>();
 		largura = larg;
 		altura = alt;
@@ -170,7 +172,7 @@ public class Cenario extends JPanel implements Observer {
 	public void lancarObjeto() {
 		new ObjetoLancado(passaroLancado, this, velocidade, angulo);
 		passaroLancado.voar();
-		JLabel lblVelocidade = new JLabel("Velocidade:"+velocidade);
+		JLabel lblVelocidade = new JLabel("Velocidade: "+velocidade);
 		lblVelocidade.setBounds(10, 11, 135, 14);
 		add(lblVelocidade);
 	}
