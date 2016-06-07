@@ -36,6 +36,8 @@ public class Cenario extends JPanel implements Observer {
 	protected JButton sair;
 	private Passaro passaroLancado;
 	ImageIcon Bird01 = new ImageIcon(getClass().getResource("RedBird_01.png"));
+	ImageIcon fundoMenu = new ImageIcon(getClass().getResource("Background_2.jpg"));
+	ImageIcon Catapulta = new ImageIcon(getClass().getResource("Catapult.png"));
 
 	public Cenario(int larg, int alt, int alturaC, int posTraj, int alturaL) {
 		setLayout(null);
@@ -140,12 +142,13 @@ public class Cenario extends JPanel implements Observer {
 		novoPassaro = new JButton("",imgRestart);
 		novoPassaro.setBounds(1170, 0, 117, 113);
 		novoPassaro.setBorder(null);
+
 		novoPassaro.setFocusPainted(false);
 		novoPassaro.setContentAreaFilled(false);
 		novoPassaro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Cenario cenario = new Cenario(Main.obterJanela().getContentPane().getWidth(),
-						Main.obterJanela().getContentPane().getHeight(), 40, 155, 195);
+						Main.obterJanela().getContentPane().getHeight(), 40, 135, 195);
 				cenario.adicionarPassaro(new Passaro(cenario));
 				new Gravidade(cenario);
 				Main.obterJanela().changerFond(cenario);
@@ -177,26 +180,28 @@ public class Cenario extends JPanel implements Observer {
 	public Movimento obterMovimento() {
 		return trac;
 	}
-
+	// PLANO DE FUNDO IN-GAME
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		ImageIcon fundoMenu = new ImageIcon(getClass().getResource("Background_2.jpg"));
 		Image imgBack = fundoMenu.getImage();
 		g.drawImage(imgBack, 0, 0, this);
-		g.setColor(new Color(138, 104, 44));
-		g.fillRect(130, 350, 50, 300);
+		// ESTILINGUE
+		Image catapult = Catapulta.getImage();
+		g.drawImage(catapult, 50, 300, this);
+//		g.setColor(Color.pink);
+//		g.fillRect(130, 350, 50, 300);
 		
-
+		// PASSARO
 		for (Passaro o : passaro) {
 			Image imgBird = Bird01.getImage();
 			Cordenada cordPos = trac.mapaTracado(o.obterCordenada());
 			
-			//Cordenada cordPos2 = trac.mapaTracado(o.obterProximaCordenada());
 			g.drawImage(imgBird, cordPos.obterX() - o.obterTamanho() / 2, cordPos.obterY() - o.obterTamanho() / 2,
 					o.obterTamanho(), o.obterTamanho(), this);
+			Cordenada cordPos2 = trac.mapaTracado(o.obterProximaCordenada());
 			
 		}
-
+		// ELASTICO DO ESTILINGUE
 		if (passaroLancado != null) {
 			int dist = new Cordenada(0, alturaLancamento).distancia(passaroLancado.obterCordenada());
 			if (dist < 120) {
@@ -211,7 +216,7 @@ public class Cenario extends JPanel implements Observer {
 				g2.setStroke(new BasicStroke(8));
 				g2.setColor(new Color(238, 201, 0));
 				Cordenada cl = trac.mapaTracado(new Cordenada(0, alturaLancamento));
-				g2.draw(new Line2D.Float(cl.obterX() - 10, cl.obterY() + 20, cl.obterX(), cl.obterY()));
+				g2.draw(new Line2D.Float(cl.obterX(), cl.obterY(), cl.obterX(), cl.obterY()));
 			}
 		}
 
