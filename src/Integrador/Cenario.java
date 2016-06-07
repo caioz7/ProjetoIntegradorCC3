@@ -37,10 +37,7 @@ public class Cenario extends JPanel implements Observer {
 	private Passaro passaroLancado;
 
 	public Cenario(int larg, int alt, int alturaC, int posTraj, int alturaL) {
-		 ImageIcon fundoMenu = new ImageIcon(getClass().getResource("Background_2.jpg"));
-		 JLabel janelaMenu = new JLabel(fundoMenu);
 		setLayout(null);
-		add(janelaMenu);
 		passaro = new ArrayList<Passaro>();
 		largura = larg;
 		altura = alt;
@@ -194,12 +191,16 @@ public class Cenario extends JPanel implements Observer {
 		g.fillRect(130, 350, 50, 300);
 
 		for (Passaro o : passaro) {
-			g.setColor(Color.red);
+			ImageIcon Bird01 = new ImageIcon(getClass().getResource("RedBird_01.gif"));
+			Image imgBird = Bird01.getImage();
 			Cordenada cordPos = trac.mapaTracado(o.obterCordenada());
-			g.fillOval(cordPos.obterX() - o.obterTamanho() / 2, cordPos.obterY() - o.obterTamanho() / 2,
-					o.obterTamanho(), o.obterTamanho());
+			/*g.fillOval(cordPos.obterX() - o.obterTamanho() / 2, cordPos.obterY() - o.obterTamanho() / 2,
+					o.obterTamanho(), o.obterTamanho());*/
 			Cordenada cordPos2 = trac.mapaTracado(o.obterProximaCordenada());
-			g.drawLine(cordPos.obterX(), cordPos.obterY(), cordPos2.obterX(), cordPos2.obterY());
+			g.drawImage(imgBird, cordPos.obterX() - o.obterTamanho() / 2, cordPos.obterY() - o.obterTamanho() / 2,
+					o.obterTamanho(), o.obterTamanho(), this);
+			//g.setColor(Color.red);
+//			g.drawLine(cordPos.obterX(), cordPos.obterY(), cordPos2.obterX(), cordPos2.obterY());
 		}
 
 		if (passaroLancado != null) {
