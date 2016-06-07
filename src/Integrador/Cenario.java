@@ -4,6 +4,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -182,10 +183,13 @@ public class Cenario extends JPanel implements Observer {
 	}
 
 	public void paintComponent(Graphics g) {
-		
-		g.setColor(new Color(91, 158, 238));
-		g.fillRect(0, 0, largura, altura);
-		g.fillRect(0, altura - alturaChao, largura, alturaChao);
+
+		ImageIcon fundoMenu = new ImageIcon(getClass().getResource("Background_2.jpg"));
+		Image imgBack = fundoMenu.getImage();
+		g.drawImage(imgBack, 0, 0, this);
+	//	g.setColor(new Color(91, 158, 238));
+		//g.fillRect(0, 0, largura, altura);
+		//g.fillRect(0, altura - alturaChao, largura, alturaChao);
 		g.setColor(new Color(138, 104, 44));
 		g.fillRect(130, 350, 50, 300);
 
