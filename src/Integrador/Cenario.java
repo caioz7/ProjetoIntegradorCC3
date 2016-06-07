@@ -35,6 +35,7 @@ public class Cenario extends JPanel implements Observer {
 	protected JButton novoPassaro;
 	protected JButton sair;
 	private Passaro passaroLancado;
+	ImageIcon Bird01 = new ImageIcon(getClass().getResource("RedBird_01.png"));
 
 	public Cenario(int larg, int alt, int alturaC, int posTraj, int alturaL) {
 		setLayout(null);
@@ -138,9 +139,7 @@ public class Cenario extends JPanel implements Observer {
 		ImageIcon imgRestart = new ImageIcon(getClass().getResource("RestartButton.png"));
 		novoPassaro = new JButton("",imgRestart);
 		novoPassaro.setBounds(1170, 0, 117, 113);
-		//novoPassaro.setFont(new Font("", Font.ITALIC, 18));
 		novoPassaro.setBorder(null);
-		//novoPassaro.setForeground(Color.BLACK);
 		novoPassaro.setFocusPainted(false);
 		novoPassaro.setContentAreaFilled(false);
 		novoPassaro.addActionListener(new ActionListener() {
@@ -180,27 +179,22 @@ public class Cenario extends JPanel implements Observer {
 	}
 
 	public void paintComponent(Graphics g) {
-
+		super.paintComponent(g);
 		ImageIcon fundoMenu = new ImageIcon(getClass().getResource("Background_2.jpg"));
 		Image imgBack = fundoMenu.getImage();
 		g.drawImage(imgBack, 0, 0, this);
-	//	g.setColor(new Color(91, 158, 238));
-		//g.fillRect(0, 0, largura, altura);
-		//g.fillRect(0, altura - alturaChao, largura, alturaChao);
 		g.setColor(new Color(138, 104, 44));
 		g.fillRect(130, 350, 50, 300);
+		
 
 		for (Passaro o : passaro) {
-			ImageIcon Bird01 = new ImageIcon(getClass().getResource("RedBird_01.gif"));
 			Image imgBird = Bird01.getImage();
 			Cordenada cordPos = trac.mapaTracado(o.obterCordenada());
-			/*g.fillOval(cordPos.obterX() - o.obterTamanho() / 2, cordPos.obterY() - o.obterTamanho() / 2,
-					o.obterTamanho(), o.obterTamanho());*/
-			Cordenada cordPos2 = trac.mapaTracado(o.obterProximaCordenada());
+			
+			//Cordenada cordPos2 = trac.mapaTracado(o.obterProximaCordenada());
 			g.drawImage(imgBird, cordPos.obterX() - o.obterTamanho() / 2, cordPos.obterY() - o.obterTamanho() / 2,
 					o.obterTamanho(), o.obterTamanho(), this);
-			//g.setColor(Color.red);
-//			g.drawLine(cordPos.obterX(), cordPos.obterY(), cordPos2.obterX(), cordPos2.obterY());
+			
 		}
 
 		if (passaroLancado != null) {

@@ -12,7 +12,7 @@ public class Passaro extends Observable {
 
 	public Passaro(Cenario d) {
 		cen = d;
-		tamanho = 55;
+		tamanho = 65;
 		this.cord = new Cordenada(-tamanho / 2 - 40 * cen.obterPassaro().size(), tamanho / 2);
 		novaCordenada = new Cordenada(-tamanho / 2 - 20 * cen.obterPassaro().size(), tamanho / 2);
 		noChao = false;
