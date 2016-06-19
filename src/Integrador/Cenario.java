@@ -14,6 +14,10 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -172,6 +176,12 @@ public class Cenario extends JPanel implements Observer {
 	public void lancarObjeto() {
 		new ObjetoLancado(passaroLancado, this, velocidade, angulo);
 		passaroLancado.voar();
+<<<<<<< HEAD
+=======
+		JLabel lblVelocidade = new JLabel("Velocidade: "+velocidade);
+		lblVelocidade.setBounds(10, 11, 135, 14);
+		add(lblVelocidade);
+>>>>>>> origin/master
 	}
 
 	public Movimento obterMovimento() {
@@ -185,6 +195,11 @@ public class Cenario extends JPanel implements Observer {
 		// ESTILINGUE
 		Image catapult = Catapulta.getImage();
 		g.drawImage(catapult, 50, 300, this);
+<<<<<<< HEAD
+=======
+//		g.setColor(Color.pink);
+//		g.fillRect(130, 350, 50, 300);
+>>>>>>> origin/master
 		
 		// PASSARO
 		for (Passaro o : passaro) {
@@ -193,6 +208,10 @@ public class Cenario extends JPanel implements Observer {
 			
 			g.drawImage(imgBird, cordPos.obterX() - o.obterTamanho() / 2, cordPos.obterY() - o.obterTamanho() / 2,
 					o.obterTamanho(), o.obterTamanho(), this);
+<<<<<<< HEAD
+=======
+			Cordenada cordPos2 = trac.mapaTracado(o.obterProximaCordenada());
+>>>>>>> origin/master
 			
 		}
 		// ELASTICO DO ESTILINGUE
