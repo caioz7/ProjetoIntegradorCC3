@@ -12,7 +12,7 @@ public class Passaro extends Observable {
 
 	public Passaro(Cenario d) {
 		cen = d;
-		tamanho = 55;
+		tamanho = 65;
 		this.cord = new Cordenada(-tamanho / 2 - 40 * cen.obterPassaro().size(), tamanho / 2);
 		novaCordenada = new Cordenada(-tamanho / 2 - 20 * cen.obterPassaro().size(), tamanho / 2);
 		noChao = false;
@@ -20,8 +20,6 @@ public class Passaro extends Observable {
 
 	public void definirX(int i) {
 		cord.alterarX(i);
-		setChanged();
-		notifyObservers();
 	}
 
 	public int obterX() {
@@ -30,8 +28,6 @@ public class Passaro extends Observable {
 
 	public void definirY(int i) {
 		cord.alterarY(i);
-		setChanged();
-		notifyObservers();
 	}
 
 	public int obterY() {
@@ -44,8 +40,6 @@ public class Passaro extends Observable {
 
 	public void definirCordenada(Cordenada c) {
 		this.cord = c;
-		setChanged();
-		notifyObservers();
 	}
 
 	public Cordenada obterProximaCordenada() {
@@ -54,8 +48,6 @@ public class Passaro extends Observable {
 
 	public void alterarProximaCordenada(Cordenada c) {
 		novaCordenada = c;
-		setChanged();
-		notifyObservers();
 	}
 
 	public int obterTamanho() {
@@ -68,26 +60,19 @@ public class Passaro extends Observable {
 
 	public void voar() {
 		noAr = true;
-		setChanged();
-		notifyObservers();
 	}
 
 	public boolean fimVoo() {
 		return noChao;
-
 	}
 
 	public void finalVoo() {
 		noChao = true;
 		noAr = false;
-		setChanged();
-		notifyObservers();
 	}
 
 	public void localLancamento() {
 		this.definirCordenada(new Cordenada(0, cen.obterAlturaLancamento() + tamanho / 2));
 		this.alterarProximaCordenada(new Cordenada(20, cen.obterAlturaLancamento() + tamanho / 2));
-		setChanged();
-		notifyObservers();
 	}
 }

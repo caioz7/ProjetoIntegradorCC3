@@ -2,11 +2,11 @@ package Integrador;
 
 public class Cordenada {
 
-	private int x, y;
+	private int x;
+	private int y;
 
 	public Cordenada(int x1, int y1) {
-		this.x = x1;
-		
+		this.x = x1;	
 		this.y = y1;
 	}
 
@@ -37,7 +37,7 @@ public class Cordenada {
 		int distanciaY = c.obterY() - y;
 		if (distanciaY < 0)
 			distanciaY *= -1;
-		return (int) Math.sqrt(distanciaX * distanciaX + distanciaY * distanciaY);
+		return (int) Math.sqrt((distanciaX * distanciaX) + (distanciaY * distanciaY));
 	}
 
 	public Cordenada soma(Cordenada vet) {

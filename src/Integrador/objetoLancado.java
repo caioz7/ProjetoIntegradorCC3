@@ -8,7 +8,8 @@ public class ObjetoLancado {
 	private Cenario cen;
 	double t;
 
-	double velocidade, angulo;
+	double velocidade;
+	double angulo;
 
 	public ObjetoLancado(Passaro o, Cenario d1, double vel, double ang) {
 		cen = d1;
