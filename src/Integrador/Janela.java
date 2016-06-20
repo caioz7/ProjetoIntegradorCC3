@@ -9,8 +9,8 @@ public class Janela extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	protected ImageIcon imgIcone = new ImageIcon(getClass().getResource("Icone.png"));
-	public ImageIcon Background = new ImageIcon(getClass().getResource("Background_2.jpg"));
-	public JLabel imgFundo = new JLabel(Background);
+	public final ImageIcon planoDeFundo = new ImageIcon(getClass().getResource("Background_2.jpg"));
+	public final JLabel imagemFundo = new JLabel(planoDeFundo);
 	public Janela(int l, int h) {
 		this.setSize(l, h);
 		this.setUndecorated(true);
@@ -19,7 +19,7 @@ public class Janela extends JFrame {
 		this.setLocationRelativeTo(null);	
 		this.setIconImage(imgIcone.getImage());
 		revalidate();
-		this.add(imgFundo);
+		this.add(imagemFundo);
 	}
 
 	public void changerFond(JPanel fond) {

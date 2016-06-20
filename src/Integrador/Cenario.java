@@ -35,9 +35,9 @@ public class Cenario extends JPanel implements Observer {
 	protected JButton novoPassaro;
 	protected JButton sair;
 	private Passaro passaroLancado;
-	ImageIcon Bird01 = new ImageIcon(getClass().getResource("RedBird_01.png"));
+	ImageIcon passaroVermelho = new ImageIcon(getClass().getResource("RedBird_01.png"));
 	ImageIcon fundoMenu = new ImageIcon(getClass().getResource("Background_2.jpg"));
-	ImageIcon Catapulta = new ImageIcon(getClass().getResource("Catapult.png"));
+	ImageIcon catapulta = new ImageIcon(getClass().getResource("Catapult.png"));
 
 	public Cenario(int larg, int alt, int alturaC, int posTraj, int alturaL) {
 		setLayout(null);
@@ -58,7 +58,8 @@ public class Cenario extends JPanel implements Observer {
 			@Override
 			public void mouseMoved(MouseEvent arg0) {
 			}
-
+			
+			@Override
 			public void mouseDragged(MouseEvent arg0) {
 				if (passaroLancado != null && !passaroLancado.inicioVoo() && !passaroLancado.fimVoo()) {
 					Cordenada coord = trac.mapaCenario(new Cordenada(arg0.getX(), arg0.getY()));
@@ -102,7 +103,7 @@ public class Cenario extends JPanel implements Observer {
 			}
 		});
 		this.addMouseListener(new MouseListener() {
-
+			@Override
 			public void mouseReleased(MouseEvent me) {
 				if (arrastar) {
 					if (passaroLancado != null && !passaroLancado.inicioVoo() && !passaroLancado.fimVoo()) {
@@ -112,16 +113,19 @@ public class Cenario extends JPanel implements Observer {
 				}
 
 			}
-
+			@Override
 			public void mousePressed(MouseEvent arg0) {
 			}
 
+			@Override
 			public void mouseExited(MouseEvent arg0) {
 			}
-
+			
+			@Override
 			public void mouseEntered(MouseEvent arg0) {
 			}
-
+			
+			@Override
 			public void mouseClicked(MouseEvent arg0) {
 			}
 
@@ -134,6 +138,7 @@ public class Cenario extends JPanel implements Observer {
 		sair.setFocusPainted(false);
 		sair.setContentAreaFilled(false);
 		sair.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Main.obterJanela().changerFond(new Menu());
 			}
@@ -147,6 +152,7 @@ public class Cenario extends JPanel implements Observer {
 		novoPassaro.setFocusPainted(false);
 		novoPassaro.setContentAreaFilled(false);
 		novoPassaro.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Cenario cenario = new Cenario(Main.obterJanela().getContentPane().getWidth(),
 						Main.obterJanela().getContentPane().getHeight(), 40, 135, 195);
@@ -189,12 +195,12 @@ public class Cenario extends JPanel implements Observer {
 		g.drawImage(imgBack, 0, 0, this);
 
 		// ESTILINGUE
-		Image catapult = Catapulta.getImage();
+		Image catapult = catapulta.getImage();
 		g.drawImage(catapult, 50, 300, this);
 		
 		// PASSARO
 		for (Passaro o : passaro) {
-			Image imgBird = Bird01.getImage();
+			Image imgBird = passaroVermelho.getImage();
 			Cordenada cordPos = trac.mapaTracado(o.obterCordenada());
 
 			g.drawImage(imgBird, cordPos.obterX() - o.obterTamanho() / 2, cordPos.obterY() - o.obterTamanho() / 2,
@@ -258,6 +264,7 @@ public class Cenario extends JPanel implements Observer {
 		}
 	}
 	
+	@Override
 	public void update(Observable arg0, Object arg1) {
 		repaint();
 	}
