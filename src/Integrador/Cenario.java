@@ -14,10 +14,6 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -59,6 +55,7 @@ public class Cenario extends JPanel implements Observer {
 
 		this.addMouseMotionListener(new MouseMotionListener() {
 
+			@Override
 			public void mouseMoved(MouseEvent arg0) {
 			}
 
@@ -130,8 +127,8 @@ public class Cenario extends JPanel implements Observer {
 
 		});
 		ImageIcon imgVoltar = new ImageIcon(getClass().getResource("HomeButton.png"));
-		JButton sair = new JButton("",imgVoltar);
-		sair.setBounds(1300, 0, 100,100);
+		JButton sair = new JButton("", imgVoltar);
+		sair.setBounds(1300, 0, 100, 100);
 		sair.setToolTipText("Voltar ao menu principal");
 		sair.setBorder(null);
 		sair.setFocusPainted(false);
@@ -142,24 +139,21 @@ public class Cenario extends JPanel implements Observer {
 			}
 		});
 		add(sair);
+		
 		ImageIcon imgRestart = new ImageIcon(getClass().getResource("RestartButton.png"));
-		novoPassaro = new JButton("",imgRestart);
+		novoPassaro = new JButton("", imgRestart);
 		novoPassaro.setBounds(1170, 0, 117, 113);
 		novoPassaro.setBorder(null);
-
 		novoPassaro.setFocusPainted(false);
 		novoPassaro.setContentAreaFilled(false);
 		novoPassaro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Cenario cenario = new Cenario(Main.obterJanela().getContentPane().getWidth(),
 						Main.obterJanela().getContentPane().getHeight(), 40, 135, 195);
-				cenario.adicionarPassaro(new Passaro(cenario));
-				new Gravidade(cenario);
 				Main.obterJanela().changerFond(cenario);
 			}
 		});
 		add(novoPassaro);
-
 	}
 
 	public Passaro passaroLancado() {
@@ -176,43 +170,36 @@ public class Cenario extends JPanel implements Observer {
 	public void lancarObjeto() {
 		new ObjetoLancado(passaroLancado, this, velocidade, angulo);
 		passaroLancado.voar();
-<<<<<<< HEAD
-=======
-		JLabel lblVelocidade = new JLabel("Velocidade: "+velocidade);
-		lblVelocidade.setBounds(10, 11, 135, 14);
-		add(lblVelocidade);
->>>>>>> origin/master
+		
 	}
 
 	public Movimento obterMovimento() {
 		return trac;
+		
 	}
+
 	// PLANO DE FUNDO IN-GAME
+	
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		
+		// PLANO DE FUNDO
 		Image imgBack = fundoMenu.getImage();
 		g.drawImage(imgBack, 0, 0, this);
+
 		// ESTILINGUE
 		Image catapult = Catapulta.getImage();
 		g.drawImage(catapult, 50, 300, this);
-<<<<<<< HEAD
-=======
-//		g.setColor(Color.pink);
-//		g.fillRect(130, 350, 50, 300);
->>>>>>> origin/master
 		
 		// PASSARO
 		for (Passaro o : passaro) {
 			Image imgBird = Bird01.getImage();
 			Cordenada cordPos = trac.mapaTracado(o.obterCordenada());
-			
+
 			g.drawImage(imgBird, cordPos.obterX() - o.obterTamanho() / 2, cordPos.obterY() - o.obterTamanho() / 2,
 					o.obterTamanho(), o.obterTamanho(), this);
-<<<<<<< HEAD
-=======
-			Cordenada cordPos2 = trac.mapaTracado(o.obterProximaCordenada());
->>>>>>> origin/master
-			
+
 		}
 		// ELASTICO DO ESTILINGUE
 		if (passaroLancado != null) {
@@ -224,13 +211,14 @@ public class Cenario extends JPanel implements Observer {
 				Cordenada co = trac.mapaTracado(passaroLancado.obterCordenada());
 				Cordenada cl = trac.mapaTracado(new Cordenada(0, alturaLancamento));
 				g2.draw(new Line2D.Float(co.obterX(), co.obterY(), cl.obterX(), cl.obterY()));
+				
 			} else if (dist > 200) {
 				Graphics2D g2 = (Graphics2D) (g);
 				g2.setStroke(new BasicStroke(8));
 				g2.setColor(new Color(238, 201, 0));
 				Cordenada cl = trac.mapaTracado(new Cordenada(0, alturaLancamento));
-				g2.draw(new Line2D.Float(cl.obterX(), cl.obterY(), cl.obterX(), cl.obterY()));
-			}
+				g2.draw(new Line2D.Float(cl.obterX(), cl.obterY(), cl.obterX(), cl.obterY()));		
+			}	
 		}
 
 		revalidate();
@@ -266,9 +254,10 @@ public class Cenario extends JPanel implements Observer {
 		if (passaroLancado == null) {
 			passaroLancado = o;
 			o.localLancamento();
+			
 		}
 	}
-
+	
 	public void update(Observable arg0, Object arg1) {
 		repaint();
 	}

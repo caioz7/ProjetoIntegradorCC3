@@ -8,7 +8,6 @@ public class Animacao {
 
 	private Cenario cen;
 	double tempoDelay;
-
 	double velocidade;
 	double angulo;
 
@@ -25,6 +24,7 @@ public class Animacao {
 			angulo = (new Random().nextBoolean()) ? 91 : 89;
 		final Timer timer = new Timer();
 		TimerTask timerTask = new TimerTask() {
+			@Override
 			public void run() {
 				tempoDelay += 0.013;
 				o.definirCordenada(cordenadaParabola(tempoDelay, velocidade, angulo, 0, cen.obterAlturaLancamento()));
@@ -35,7 +35,6 @@ public class Animacao {
 					o.alterarProximaCordenada(cordenadaParabola(t2, velocidade, angulo, 0, cen.obterAlturaLancamento()));
 				}
 				cen.repaint();
-
 			}
 		};
 		timer.scheduleAtFixedRate(timerTask, 0, 1);
@@ -44,11 +43,9 @@ public class Animacao {
 	static Cordenada cordenadaParabola(double t, double velocidade, double angulo, int posDepX, int posDepY) {
 		double rad = Math.toRadians(angulo);
 		double x = velocidade * Math.cos(rad) * t + posDepX;
-
 		double truc = x / (velocidade * Math.cos(rad));
-		final double G = 9.81;
-
-		double y = (-(G / 2)) * truc * truc + velocidade * Math.sin(rad) * truc + posDepY;
+		final double gravidade = 9.81;
+		double y = (-(gravidade / 2)) * truc * truc + velocidade * Math.sin(rad) * truc + posDepY;
 		return new Cordenada((int) x, (int) y);
 
 	}

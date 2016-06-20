@@ -14,11 +14,7 @@ public class Menu extends JPanel {
 	public ImageIcon fundoMenu = new ImageIcon(getClass().getResource("Background_2.jpg"));
 	public ImageIcon imgSair = new ImageIcon(getClass().getResource("ExitButton.png"));
 	private JButton jogar = new JButton("",imgStart);
-<<<<<<< HEAD
 	private JButton sair = new JButton("",imgSair);
-=======
-	private JButton Sair= new JButton("",imgSair);
->>>>>>> origin/master
 	private JLabel janelaMenu = new JLabel(fundoMenu);
 	public Menu() {
 
@@ -29,17 +25,10 @@ public class Menu extends JPanel {
 		jogar.setContentAreaFilled(false);
 		jogar.setToolTipText("Iniciar");
 		jogar.setFocusable(false);
-<<<<<<< HEAD
 		sair.setBorder(null);
 		sair.setBounds(1260, 480, 110, 110);
 		sair.setContentAreaFilled(false);
 		sair.setToolTipText("Fechar");
-=======
-		Sair.setBorder(null);
-		Sair.setBounds(1260, 480, 110, 110);
-		Sair.setContentAreaFilled(false);
-		Sair.setToolTipText("Fechar");
->>>>>>> origin/master
 		setLayout(null);
 		revalidate();
 		
@@ -50,25 +39,19 @@ public class Menu extends JPanel {
 				Cenario cenario = new Cenario(Main.obterJanela().getContentPane().getWidth(),
 						Main.obterJanela().getContentPane().getHeight(), 40, 125, 100);
 				cenario.adicionarPassaro(new Passaro(cenario));
-				new Gravidade(cenario);
+				//new Gravidade(cenario);
 				Main.obterJanela().changerFond(cenario);
+				
+				
 			}
 		});
-<<<<<<< HEAD
 		sair.addActionListener(new ActionListener() {			
-=======
-		Sair.addActionListener(new ActionListener() {			
->>>>>>> origin/master
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);				
 			}
 		});
-<<<<<<< HEAD
 		add(sair);
-=======
-		add(Sair);
->>>>>>> origin/master
 		add(jogar);
 		add(janelaMenu);
 	}

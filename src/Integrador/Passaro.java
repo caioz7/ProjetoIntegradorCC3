@@ -4,7 +4,8 @@ import java.util.Observable;
 
 public class Passaro extends Observable {
 
-	private Cordenada cord, novaCordenada;
+	private Cordenada cord;
+	private Cordenada novaCordenada;
 	private int tamanho;
 	private Cenario cen;
 	private boolean noAr = false;
@@ -16,6 +17,7 @@ public class Passaro extends Observable {
 		this.cord = new Cordenada(-tamanho / 2 - 40 * cen.obterPassaro().size(), tamanho / 2);
 		novaCordenada = new Cordenada(-tamanho / 2 - 20 * cen.obterPassaro().size(), tamanho / 2);
 		noChao = false;
+		
 	}
 
 	public void definirX(int i) {
