@@ -37,7 +37,7 @@ public class Menu extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				Cenario cenario = new Cenario(Main.obterJanela().getContentPane().getWidth(),
-						Main.obterJanela().getContentPane().getHeight(), 40, 125, 100);
+						Main.obterJanela().getContentPane().getHeight(), 40, 135, 195);
 				cenario.adicionarPassaro(new Passaro(cenario));
 				//new Gravidade(cenario);
 				Main.obterJanela().changerFond(cenario);

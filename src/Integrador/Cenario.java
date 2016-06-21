@@ -17,6 +17,7 @@ import java.util.Observer;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Cenario extends JPanel implements Observer {
@@ -157,6 +158,7 @@ public class Cenario extends JPanel implements Observer {
 				Cenario cenario = new Cenario(Main.obterJanela().getContentPane().getWidth(),
 						Main.obterJanela().getContentPane().getHeight(), 40, 135, 195);
 				Main.obterJanela().changerFond(cenario);
+				cenario.adicionarPassaro(new Passaro(cenario));
 			}
 		});
 		add(novoPassaro);
