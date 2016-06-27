@@ -1,5 +1,7 @@
 package Integrador;
 
+import javax.swing.JOptionPane;
+
 public class Cordenada {
 
 	private int x;

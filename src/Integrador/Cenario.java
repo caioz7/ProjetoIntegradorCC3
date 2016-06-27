@@ -37,6 +37,7 @@ public class Cenario extends JPanel implements Observer {
 	protected JButton sair;
 	private Passaro passaroLancado;
 	ImageIcon passaroVermelho = new ImageIcon(getClass().getResource("RedBird_01.png"));
+	ImageIcon imgKingPig = new ImageIcon(getClass().getResource("KingPig.png"));
 	ImageIcon fundoMenu = new ImageIcon(getClass().getResource("Background_2.jpg"));
 	ImageIcon catapulta = new ImageIcon(getClass().getResource("Catapult.png"));
 
@@ -164,6 +165,7 @@ public class Cenario extends JPanel implements Observer {
 		add(novoPassaro);
 	}
 
+
 	public Passaro passaroLancado() {
 		for (Passaro o : passaro) {
 			if (!o.fimVoo()) {
@@ -200,6 +202,9 @@ public class Cenario extends JPanel implements Observer {
 		Image catapult = catapulta.getImage();
 		g.drawImage(catapult, 50, 300, this);
 		
+		// ALVO
+		Image kingPig = imgKingPig.getImage();
+		g.drawImage(kingPig, 1200, 435, this);
 		// PASSARO
 		for (Passaro o : passaro) {
 			Image imgBird = passaroVermelho.getImage();
