@@ -14,13 +14,9 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Cenario extends JPanel implements Observer {
@@ -63,7 +59,7 @@ public class Cenario extends JPanel implements Observer {
 			@Override
 			public void mouseMoved(MouseEvent arg0) {
 			}
-			
+
 			@Override
 			public void mouseDragged(MouseEvent arg0) {
 				if (passaroLancado != null && !passaroLancado.inicioVoo() && !passaroLancado.fimVoo()) {
@@ -125,11 +121,11 @@ public class Cenario extends JPanel implements Observer {
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 			}
-			
+
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
 			}
-			
+
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 			}
@@ -149,7 +145,7 @@ public class Cenario extends JPanel implements Observer {
 			}
 		});
 		add(sair);
-		
+
 		ImageIcon imgRestart = new ImageIcon(getClass().getResource("RestartButton.png"));
 		novoPassaro = new JButton("", imgRestart);
 		novoPassaro.setBounds(1170, 0, 117, 113);
@@ -165,11 +161,8 @@ public class Cenario extends JPanel implements Observer {
 				cenario.adicionarPassaro(new Passaro(cenario));
 			}
 		});
-
-		  add(novoPassaro);
+		add(novoPassaro);
 	}
-	
-
 
 	public Passaro passaroLancado() {
 		for (Passaro o : passaro) {
@@ -185,26 +178,25 @@ public class Cenario extends JPanel implements Observer {
 	public void lancarObjeto() {
 		new ObjetoLancado(passaroLancado, this, velocidade, angulo);
 		passaroLancado.voar();
-			JLabel lblVelocidade = new JLabel("Velocidade: "+velocidade*10 + " px/s");
-				lblVelocidade.setBounds(10, 11, 135, 14);
-				add(lblVelocidade);
-				JLabel lblAngulo = new JLabel("Angulo: "+(int)angulo +"°");
-				lblAngulo.setBounds(10, 11, 135, 64);
-				add(lblAngulo);
-		
+		JLabel lblVelocidade = new JLabel("Velocidade: "+velocidade*10 + " px/s");
+		lblVelocidade.setBounds(10, 11, 135, 14);
+		add(lblVelocidade);
+		JLabel lblAngulo = new JLabel("Angulo: "+(int)angulo +"°");
+		lblAngulo.setBounds(10, 11, 135, 64);
+		add(lblAngulo);
+
 	}
 
 	public Movimento obterMovimento() {
 		return trac;
-		
+
 	}
 
 	// PLANO DE FUNDO IN-GAME
-	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
+
 		// PLANO DE FUNDO
 		Image imgBack = fundoMenu.getImage();
 		g.drawImage(imgBack, 0, 0, this);
@@ -212,7 +204,7 @@ public class Cenario extends JPanel implements Observer {
 		// ESTILINGUE
 		Image catapult = catapulta.getImage();
 		g.drawImage(catapult, 50, 300, this);
-		
+
 		// ALVO
 		Image kingPig = imgKingPig.getImage();
 		g.drawImage(kingPig, 1200, 435, this);
@@ -235,7 +227,7 @@ public class Cenario extends JPanel implements Observer {
 				Cordenada co = trac.mapaTracado(passaroLancado.obterCordenada());
 				Cordenada cl = trac.mapaTracado(new Cordenada(0, alturaLancamento));
 				g2.draw(new Line2D.Float(co.obterX(), co.obterY(), cl.obterX(), cl.obterY()));
-				
+
 			} else if (dist > 200) {
 				Graphics2D g2 = (Graphics2D) (g);
 				g2.setStroke(new BasicStroke(8));
@@ -278,10 +270,10 @@ public class Cenario extends JPanel implements Observer {
 		if (passaroLancado == null) {
 			passaroLancado = o;
 			o.localLancamento();
-			
+
 		}
 	}
-	
+
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		repaint();
