@@ -39,6 +39,9 @@ public class Cordenada {
 		int distanciaY = c.obterY() - y;
 		if (distanciaY < 0)
 			distanciaY *= -1;
+		if(y<20){
+			y=-y;
+		}
 		return (int) Math.sqrt((distanciaX * distanciaX) + (distanciaY * distanciaY));
 	}
 

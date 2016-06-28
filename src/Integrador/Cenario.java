@@ -14,6 +14,9 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -162,8 +165,10 @@ public class Cenario extends JPanel implements Observer {
 				cenario.adicionarPassaro(new Passaro(cenario));
 			}
 		});
-		add(novoPassaro);
+
+		  add(novoPassaro);
 	}
+	
 
 
 	public Passaro passaroLancado() {
@@ -180,10 +185,10 @@ public class Cenario extends JPanel implements Observer {
 	public void lancarObjeto() {
 		new ObjetoLancado(passaroLancado, this, velocidade, angulo);
 		passaroLancado.voar();
-			JLabel lblVelocidade = new JLabel("Velocidade:"+velocidade);
+			JLabel lblVelocidade = new JLabel("Velocidade: "+velocidade*10 + " px/s");
 				lblVelocidade.setBounds(10, 11, 135, 14);
 				add(lblVelocidade);
-				JLabel lblAngulo = new JLabel("Angulo:"+angulo);
+				JLabel lblAngulo = new JLabel("Angulo: "+(int)angulo +"°");
 				lblAngulo.setBounds(10, 11, 135, 64);
 				add(lblAngulo);
 		
