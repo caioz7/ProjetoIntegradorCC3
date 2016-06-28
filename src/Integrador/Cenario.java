@@ -180,6 +180,12 @@ public class Cenario extends JPanel implements Observer {
 	public void lancarObjeto() {
 		new ObjetoLancado(passaroLancado, this, velocidade, angulo);
 		passaroLancado.voar();
+			JLabel lblVelocidade = new JLabel("Velocidade:"+velocidade);
+				lblVelocidade.setBounds(10, 11, 135, 14);
+				add(lblVelocidade);
+				JLabel lblAngulo = new JLabel("Angulo:"+angulo);
+				lblAngulo.setBounds(10, 11, 135, 64);
+				add(lblAngulo);
 		
 	}
 
